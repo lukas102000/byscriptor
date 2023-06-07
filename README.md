@@ -9,88 +9,53 @@ Este api não criptografa arquivos!
 Este api pode ser usado no frontend ou backend para criptografar dados!
 
 ### Uso
+
 ````html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Byscripor</title>
-        <style>
-            body{
-                background-color: rgb(228, 230, 230);
-            }
-            input{
-                width: 80%;
-                padding: 15px;
-                border-radius: 10px;
-                border: 0;
-                outline: none;
-                display: block;
-                margin: 10px;
-            }
-            button{
-                width: 86%;
-                padding: 10px;
-                border-radius: 10px;
-                border: 0;
-                font-size: 15pt;
-                margin: 10px;
-                color: white;
-                background-color: rgb(255, 174, 0);
-            }
-            h1{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: rgb(3, 165, 3); padding: 15px;}
-        </style>
-    </head>
-    <body>
+    <h1 id="criptor">Result</h1>
+    <input type="password" name="" id="password" placeholder="senha">
+    <button id="create">Create</button>
 
-        <h1 id="criptor">Resultado</h1>
-        <input type="password" name="" id="password" placeholder="senha">
-        <button id="create">Create</button>
+    <h1 id="descript">Result</h1>
+    <input type="password" name="" id="password2" placeholder="senha criptografada">
+    <button id="descripts">Create</button>
 
-        <h1 id="descript">Resultado</h1>
-        <input type="password" name="" id="password2" placeholder="senha criptografada">
-        <button id="descripts">Create</button>
+    <script src = "./source/byscriptor-api.js"> </script>
 
-        <script src = "./source/byscriptor-api.js"> </script>
-
-        <script>
-            const criptor = Byscripor()
-            // criptografando...
-            document.getElementById("create").addEventListener("click", function (){
-                var password = document.getElementById("password").value
-                var password_criptor = criptor.criptor(password)
-                var result = password_criptor.results
-                document.getElementById("criptor").innerHTML = result
-                document.getElementById("password").value = ""
-            })
-            // descriptografando
-            document.getElementById("descripts").addEventListener("click", function (){
-                var password = document.getElementById("password2").value
-                var password_criptor = criptor.descriptor(password)
-                var result = password_criptor.results
-                document.getElementById("descript").innerHTML = result
-                document.getElementById("password").value = ""
-            })
-        </script> 
-    </body>
-    </html>
+    <script>
+        const criptor = Byscripor()
+        // criptografando...
+        document.getElementById("create").addEventListener("click", function (){
+            var password = document.getElementById("password").value
+            var password_criptor = criptor.criptor(password)
+            var result = password_criptor.results
+            document.getElementById("criptor").innerHTML = result
+            document.getElementById("password").value = ""
+        })
+        // descriptografando
+        document.getElementById("descripts").addEventListener("click", function (){
+            var password = document.getElementById("password2").value
+            var password_criptor = criptor.descriptor(password)
+            var result = password_criptor.results
+            document.getElementById("descript").innerHTML = result
+            document.getElementById("password").value = ""
+        })
+    </script> 
 ````
+### JS
 ````js
 
-    // Instancia a função Byscriptor ()
-    const criptor = Byscripor()
-    // dado do usuário, lendo a senha
+    // Instantiate the Byscriptor() function
+    const cryptor = Byscript()
+    // user data, reading the password
     var password = "adminLucasVeraz"
-    // criptografando
-    var password_criptor = criptor.criptor(password)
-    // obtendo o resultado da chave e salvar um banco de dados local caso tenha um
-    var result = password_criptor.results
-    console.log(password_criptor.results)
+    // encrypting
+    var password_criptor = cryptor.criptor(password)
+    // getting the key result and saving a local database if it has one
+    var result = password_cryptor.results
+    console.log(password_cryptor.results)
 
-    // descriptografar 
-    var password_descript = criptor.descriptor(result)
+    // decrypt
+    var password_descript = cryptor.descriptor(result)
     var result2 = password_descript.result
     console.log(password_descript.results)
 
